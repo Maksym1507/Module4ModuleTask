@@ -37,8 +37,8 @@ namespace Module4ModuleTask.Repositories
 
             await _dbContext.OrderDetails.AddRangeAsync(items.Select(s => new OrderDetailsEntity()
             {
-                OrderId = result.Entity.Id,
                 ProductId = s.ProductId,
+                OrderId = result.Entity.Id,
                 Quantity = s.Quantity,
             }));
 

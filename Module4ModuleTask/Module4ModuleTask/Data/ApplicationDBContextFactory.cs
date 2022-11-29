@@ -16,7 +16,7 @@ namespace Module4ModuleTask.Data
             var config = builder.Build();
 
             var connectionString = config.GetConnectionString("DefaultConnection");
-            optionsBuilder.UseSqlServer(connectionString, opts
+            optionsBuilder.UseNpgsql(connectionString, opts
                 => opts.CommandTimeout((int)TimeSpan.FromMinutes(10).TotalSeconds));
             return new ApplicationDbContext(optionsBuilder.Options);
         }

@@ -31,7 +31,7 @@ namespace Module4ModuleTask
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             serviceCollection.AddDbContextFactory<ApplicationDbContext>(options
-                => options.UseSqlServer(connectionString));
+                => options.UseNpgsql(connectionString));
             serviceCollection.AddScoped<IDbContextWrapper<ApplicationDbContext>, DbContextWrapper<ApplicationDbContext>>();
 
             serviceCollection

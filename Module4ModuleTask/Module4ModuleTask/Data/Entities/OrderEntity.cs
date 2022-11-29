@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using Module4ModuleTask.Models;
+﻿using Module4ModuleTask.Models;
 
 namespace Module4ModuleTask.Data.Entities
 {
@@ -10,9 +9,6 @@ namespace Module4ModuleTask.Data.Entities
         public int CustomerId { get; set; }
 
         public CustomerEntity? Customer { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Number { get; }
 
         public int PaymentId { get; set; }
 

@@ -262,7 +262,7 @@ namespace Module4ModuleTask
             var ordersByShipperAndPaymentId = await _orderService.GetOrdersByShipperIdAndPaymentIdAsync(shipper2.Id, payment1.Id);
             var shipperWithOrders = await _shipperService.GetShipperWithOrdersAsync(shipper2.Id);
 
-            /*category1.Description = "pizza with meat";
+            category1.Description = "pizza with meat";
             isUpdatedCategoryById = await _categoryService.UpdateCategoryAsync(category1.Id, category1);
 
             shipper1!.Name = "Antonio";
@@ -289,9 +289,9 @@ namespace Module4ModuleTask
             order1.TransactStatus = TransactStatus.Approved;
             order1.Paid = true;
             order1.PaymentDate = DateTime.UtcNow;
-            var isUpdatedOrderById = await _orderService.UpdateOrderAsync(order1.Id, order1);*/
+            var isUpdatedOrderById = await _orderService.UpdateOrderAsync(order1.Id, order1);
 
-            /*var isDeletedCategoryById = await _categoryService.DeleteCategoryAsync(category1.Id);
+            var isDeletedCategoryById = await _categoryService.DeleteCategoryAsync(category1.Id);
             var isDeletedCustomerById = await _customerService.DeleteCustomerAsync(customer2.Id);
             var isDeletedPaymentById = await _paymentService.DeletePaymentAsync(payment1.Id);
             var isDeletedShipperById = await _shipperService.DeleteShipperAsync(shipper2.Id);
@@ -299,7 +299,7 @@ namespace Module4ModuleTask
             var isDeletedProductById = await _productService.DeleteProductAsync(product1.Id);
             var isDeletedOrderById = await _orderService.DeleteOrderAsync(order1.Id);
 
-            var isDeletedProductByCategoryId = await _productService.DeleteProductsByCategoryIdAsync(category2.Id);*/
+            var isDeletedProductByCategoryId = await _productService.DeleteProductsByCategoryIdAsync(category2.Id);
         }
     }
 }

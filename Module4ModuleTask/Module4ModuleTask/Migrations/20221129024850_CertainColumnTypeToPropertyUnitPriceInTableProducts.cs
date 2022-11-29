@@ -14,7 +14,7 @@ namespace Module4ModuleTask.Migrations
                 type: "money",
                 nullable: false,
                 oldClrType: typeof(decimal),
-                oldType: "decimal(18,2)");
+                oldType: "numeric");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -22,7 +22,7 @@ namespace Module4ModuleTask.Migrations
             migrationBuilder.AlterColumn<decimal>(
                 name: "UnitPrice",
                 table: "Products",
-                type: "decimal(18,2)",
+                type: "numeric",
                 nullable: false,
                 oldClrType: typeof(decimal),
                 oldType: "money");
