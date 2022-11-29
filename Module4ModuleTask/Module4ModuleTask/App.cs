@@ -263,27 +263,27 @@ namespace Module4ModuleTask
             var shipperWithOrders = await _shipperService.GetShipperWithOrdersAsync(shipper2.Id);
 
             category1.Description = "pizza with meat";
-            isUpdatedCategoryById = await _categoryService.UpdateCategoryAsync(category1.Id, category1);
+            var isUpdatedCategoryById = await _categoryService.UpdateCategoryAsync(category1.Id, category1);
 
             shipper1!.Name = "Antonio";
             shipper1.Phone = "0634237016";
-            isUpdatedShipperById = await _shipperService.UpdateShipperAsync(shipper1.Id, shipper1);
+            var isUpdatedShipperById = await _shipperService.UpdateShipperAsync(shipper1.Id, shipper1);
 
             payment1!.PaymentType = PaymentType.CreditCard;
             payment1.Allowed = false;
-            isUpdatedPaymentById = await _paymentService.UpdatePaymentAsync(payment1.Id, payment1);
+            var isUpdatedPaymentById = await _paymentService.UpdatePaymentAsync(payment1.Id, payment1);
 
             customer1.City = "Dnepr";
-            isUpdatedCustomerById = await _customerService.UpdateCustomerAsync(customer1.Id, customer1);
+            var isUpdatedCustomerById = await _customerService.UpdateCustomerAsync(customer1.Id, customer1);
 
             supplier1!.PostalCode = 61834;
             supplier1.Email = "alevel1@gmail.com";
-            isUpdatedSupplierById = await _supplierService.UpdateSupplierAsync(supplier1.Id, supplier1);
+            var isUpdatedSupplierById = await _supplierService.UpdateSupplierAsync(supplier1.Id, supplier1);
 
             product2.Discount = DiscountType.None;
             product1.Color = "Green";
-            isUpdatedProductById = await _productService.UpdateProductAsync(product1.Id, product1);
-            isUpdatedProductById = await _productService.UpdateProductAsync(product2.Id, product2);
+            var isUpdatedProduct1ById = await _productService.UpdateProductAsync(product1.Id, product1);
+            var isUpdatedProduct2ById = await _productService.UpdateProductAsync(product2.Id, product2);
 
             order1.ShipDate = DateTime.UtcNow.AddDays(4);
             order1.TransactStatus = TransactStatus.Approved;
