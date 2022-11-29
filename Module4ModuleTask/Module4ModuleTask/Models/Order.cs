@@ -1,24 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using Module4ModuleTask.Models;
-
-namespace Module4ModuleTask.Data.Entities
+﻿namespace Module4ModuleTask.Models
 {
-    public class OrderEntity
+    public class Order
     {
         public int Id { get; set; }
 
         public int CustomerId { get; set; }
 
-        public CustomerEntity? Customer { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Number { get; }
-
         public int PaymentId { get; set; }
 
-        public PaymentEntity? Payment { get; set; }
-
-        public DateTime OrderDate { get; set; }
+        public Payment? Payment { get; set; }
 
         public DateTime ShipDate { get; set; }
 
@@ -26,7 +16,7 @@ namespace Module4ModuleTask.Data.Entities
 
         public int ShipperId { get; set; }
 
-        public ShipperEntity? Shipper { get; set; }
+        public Shipper? Shipper { get; set; }
 
         public int SalesTax { get; set; }
 
@@ -40,6 +30,6 @@ namespace Module4ModuleTask.Data.Entities
 
         public DateTime PaymentDate { get; set; }
 
-        public List<OrderDetailsEntity> OrderDetails { get; set; } = null!;
+        public IEnumerable<OrderItem>? OrderDetails { get; set; }
     }
 }

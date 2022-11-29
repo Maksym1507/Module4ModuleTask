@@ -4,13 +4,13 @@
 
 namespace Module4ModuleTask.Migrations
 {
-    public partial class CertainColumnTypeToPropertyTotalInOrderDetails : Migration
+    public partial class CertainColumnTypeToPropertyUnitPriceInTableProducts : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<decimal>(
-                name: "Total",
-                table: "OrderDetails",
+                name: "UnitPrice",
+                table: "Products",
                 type: "money",
                 nullable: false,
                 oldClrType: typeof(decimal),
@@ -20,8 +20,8 @@ namespace Module4ModuleTask.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<decimal>(
-                name: "Total",
-                table: "OrderDetails",
+                name: "UnitPrice",
+                table: "Products",
                 type: "decimal(18,2)",
                 nullable: false,
                 oldClrType: typeof(decimal),

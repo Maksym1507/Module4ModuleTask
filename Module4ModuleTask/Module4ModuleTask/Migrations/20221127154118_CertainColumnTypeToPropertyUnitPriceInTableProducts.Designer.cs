@@ -12,8 +12,8 @@ using Module4ModuleTask.Data;
 namespace Module4ModuleTask.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221125005343_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221127154118_CertainColumnTypeToPropertyUnitPriceInTableProducts")]
+    partial class CertainColumnTypeToPropertyUnitPriceInTableProducts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,10 @@ namespace Module4ModuleTask.Migrations
                 .HasAnnotation("ProductVersion", "6.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseHiLo(modelBuilder, "EntityFrameworkHiLoSequence");
+
+            modelBuilder.HasSequence("EntityFrameworkHiLoSequence")
+                .IncrementsBy(10);
 
             modelBuilder.Entity("Module4ModuleTask.Data.Entities.CategoryEntity", b =>
                 {
@@ -30,7 +33,7 @@ namespace Module4ModuleTask.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"));
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
@@ -53,7 +56,7 @@ namespace Module4ModuleTask.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -110,30 +113,14 @@ namespace Module4ModuleTask.Migrations
 
             modelBuilder.Entity("Module4ModuleTask.Data.Entities.OrderDetailsEntity", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"));
+
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("BillDate")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Discount")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Fulfilled")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderNumber")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("money");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -141,16 +128,9 @@ namespace Module4ModuleTask.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ShipDate")
-                        .HasColumnType("date");
+                    b.HasKey("Id");
 
-                    b.Property<int>("Size")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("OrderId");
+                    b.HasIndex("OrderId");
 
                     b.HasIndex("ProductId");
 
@@ -163,7 +143,7 @@ namespace Module4ModuleTask.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"));
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
@@ -175,7 +155,10 @@ namespace Module4ModuleTask.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int>("Number")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Number"));
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("date");
@@ -221,7 +204,7 @@ namespace Module4ModuleTask.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"));
 
                     b.Property<bool>("Allowed")
                         .HasColumnType("bit");
@@ -240,7 +223,7 @@ namespace Module4ModuleTask.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"));
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -298,7 +281,7 @@ namespace Module4ModuleTask.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -318,7 +301,7 @@ namespace Module4ModuleTask.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
                         .IsRequired()

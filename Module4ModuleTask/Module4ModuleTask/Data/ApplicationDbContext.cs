@@ -37,6 +37,7 @@ namespace Module4ModuleTask.Data
             builder.ApplyConfiguration(new PaymentEntityConfiguration());
             builder.ApplyConfiguration(new OrderEntityConfiguration());
             builder.ApplyConfiguration(new OrderDetailsEntityConfiguration());
+            builder.UseHiLo();
         }
     }
 }
